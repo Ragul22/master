@@ -1,0 +1,23 @@
+Bacula client install and configure client bacula to main bacula server
+client bacula install in window os 
+step 1 : https://www.bacula.org/binary-download-center/   browser and downlaod client file in client server
+step 2: add bacula main server details in client bacula installation file (eh-vesxibkpnfs-dir) pass : bareos ip 192.168.50.42 
+step 3 : open bacula-fd.conf  path c:program/bacula-fd.conf  add password - bareos   ( grep ri bacula client ip 
+step 4: open main bacula path /etc/bareos vi baroes-dir.conf add client bacula details   (@/etc/bareos/clients/ (clientbacula.conf) client hostname.conf file
+step 5 : same main bacula path /etc/bareos/clients/dir add clienthostname.conf add clientbacula hostname and ipaddress check c:drive and other drive details and pool details edit 
+client bacula install in linux OS
+step 1 : apt-get install bacula-client
+step 2: Director {
+  Name = eh-vesxibkpnfs-dir
+  Password = "bareos"
+}
+#
+# Restricted Director, used by tray-monitor to get the
+#   status of the file daemon
+#
+Director {
+  Name = sftp2.ebixrisk.com-mon
+  Password = "bareos"
+  Monitor = yes
+}
+
